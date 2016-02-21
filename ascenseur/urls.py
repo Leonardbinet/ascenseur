@@ -19,7 +19,8 @@ from django.contrib import admin
 from articles import views
 
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^articles/',views.articles), #include('articles.urls')
+    url(r'^$', views.index, name="accueil"),
+    url(r'^articles/',include('articles.urls')), #include('articles.urls')
+
     url(r'^admin/', admin.site.urls),
 ]
