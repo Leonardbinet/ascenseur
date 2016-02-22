@@ -2,20 +2,16 @@
 
 from django.shortcuts import render
 from django.template import loader
-from .models import Article
+from .models import Article, Categorie
 
 
 def index(request):
-    context = {
-        'rien': "rien",
-    }
+    categories = Categorie.objects.all()
+    articles = Article.objects.all()
+    context = {}
+    context['categories']= categories
+    context['articles']= articles
     return render(request,'articles/index.html',context)
-
-def articles(request):
-    context = {
-        'rien': "rien",
-    }
-    return render(request,'articles/articles.html',context)
 
 def article_lecture(request, article_name_slug):
 
@@ -41,8 +37,3 @@ def article_lecture(request, article_name_slug):
     return render(request, 'articles/article_lecture.html', context_dict)
 
 
-def article_exemple(request):
-    context = {
-        'rien': "rien",
-    }
-    return render(request,'articles/article_lecture.html',context)

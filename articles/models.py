@@ -8,7 +8,7 @@ class Categorie(models.Model):
     name_db = models.CharField(max_length=50)
     nom = models.CharField(max_length=200)
     description = models.TextField()
-    def __str__(self):
+    def __unicode__(self):
         return self.nom
 
 class Article(models.Model):
@@ -26,6 +26,6 @@ class Article(models.Model):
             self.slug = slugify(self.titre_article)
             super(Article, self).save(*args, **kwargs)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.titre_article
 

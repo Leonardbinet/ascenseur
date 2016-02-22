@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'articles',
+    'prestataires',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'ascenseur.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ascenseur/templates'),os.path.join(BASE_DIR, 'articles/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'ascenseur/templates'),os.path.join(BASE_DIR, 'articles/templates'),os.path.join(BASE_DIR, 'prestataires/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

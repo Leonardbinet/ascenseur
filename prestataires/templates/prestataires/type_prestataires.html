@@ -3,10 +3,10 @@
 
 
 {% block body_block %}
-<header style="background-image: url({% static 'Bootstrap/img/header2.jpg' %});min-height: 70%;">
+<header style="background-image: url({% static 'Bootstrap/img/header3.jpg' %});min-height: 70%;">
     <div class="header-content">
         <div class="header-content-inner">
-            <h1>Les dossiers thématiques</h1>
+            <h1>Les prestataires</h1>
             <br>
             <p>Des informations et conseils pour mieux comprendre les enjeux de l'ascenseur en copropriété</p>
         </div>
@@ -36,6 +36,11 @@
             <div class="col-md-4">
                 <h2>Focus particuliers</h2>
                 <p>Focus sur la téléalarme, sur les solutions de sécurisation, sur l'accessibilité, sur l'esthétique, sur les bureaux d'étude etc</p>
+                <p><a class="btn btn-default" href="{% url 'article_exemple' %}" role="button">Accéder à l'article »</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Les différents acteurs</h2>
+                <p>Ascensoriste, syndic, bureau d'étude, contrôleur technique</p>
                 <p><a class="btn btn-default" href="{% url 'article_exemple' %}" role="button">Accéder à l'article »</a></p>
             </div>
         </div>
