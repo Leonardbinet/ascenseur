@@ -3,7 +3,7 @@ branch-defaults:
     environment: enva
     group_suffix: null
 global:
-  application_name: ascenseur
+  application_name: ascnew
   default_ec2_keyname: aws-eb
   default_platform: python2.7
   default_region: eu-west-1
