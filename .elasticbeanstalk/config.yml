@@ -1,11 +1,11 @@
 branch-defaults:
   master:
-    environment: enva
+    environment: envascenseur
     group_suffix: null
 global:
-  application_name: ascnew
+  application_name: ascenseur
   default_ec2_keyname: aws-eb
-  default_platform: python2.7
+  default_platform: Python 2.7
   default_region: eu-west-1
   profile: eb-cli
   sc: git
