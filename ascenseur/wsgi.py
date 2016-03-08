@@ -8,9 +8,17 @@ https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 """
 
 import os
+import sys
 
+#
+## assuming your django settings file is at '/home/yomams/mysite/mysite/settings.py'
+## and your manage.py is is at '/home/yomams/mysite/manage.py'
+path = '/home/yomams/ascenseur'
+if path not in sys.path:
+    sys.path.append(path)
+#
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ascenseur.settings'
+#
+## then, for django >=1.5:
 from django.core.wsgi import get_wsgi_application
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ascenseur.settings")
-
 application = get_wsgi_application()

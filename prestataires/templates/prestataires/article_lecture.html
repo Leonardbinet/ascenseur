@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block body_block %}
+<header style="background-image: url({% static 'Bootstrap/img/header5.jpg' %});min-height: 70%;">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 style="color: #333;">Trouvez un prestataire</h1>
+            <br>
+            <p style="color: #333;">test Des informations et conseils pour mieux comprendre les enjeux de l'ascenseur en copropriété</p>
+        </div>
+    </div>
+</header>
+<article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <br><br><br>
+                    <h2>{{ nom_article }}</h2>
+                    {{ body_article|safe }}
+
+                </div>
+        </div>
+    </div>
+</article>
+
+{% endblock %}

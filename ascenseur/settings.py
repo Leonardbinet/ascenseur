@@ -126,3 +126,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "ascenseur/static"),
     '/var/www/static/',
 ]
+STATIC_ROOT = "/home/yomams/static"
