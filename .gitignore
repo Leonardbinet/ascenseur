@@ -13,3 +13,6 @@
 /secrets.json
 
 bdd_dev
+
+/articles/migrations/*
+/prestataires/migrations/*
