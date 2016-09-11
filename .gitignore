@@ -11,3 +11,5 @@
 !.elasticbeanstalk/*.global.yml
 
 /secrets.json
+
+bdd_dev
