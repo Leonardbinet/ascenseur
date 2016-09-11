@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'kq)b)^+keuftuq7euxy(b)bpzw5^bo=&48hda#(l$39)@c4!5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'www.ascenseur-en-copropriete.com']
 
 
 # Application definition
@@ -78,6 +78,15 @@ WSGI_APPLICATION = 'ascenseur.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ascenseur',
+        'USER': 'yomams',
+        'PASSWORD': '(~K7!v,2=tav',
+        'HOST': 'yomams.mysql.pythonanywhere-services.com',
+    }
+
+
+    'old': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -126,3 +135,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "ascenseur/static"),
 ]
 STATIC_ROOT = "/home/yomams/static"
+GOOGLE_ANALYTICS_KEY = "UA-83965114-1"
