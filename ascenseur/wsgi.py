@@ -1,24 +1,15 @@
-"""
-WSGI config for ascenseur project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
-"""
 
 import os
 import sys
 
-#
-## assuming your django settings file is at '/home/yomams/mysite/mysite/settings.py'
-## and your manage.py is is at '/home/yomams/mysite/manage.py'
-path = '/home/yomams/ascenseur'
+path = '/home/yomams/ascenseur/'
+path1 = '/home/yomams/ascenseur/ascenseur/'
 if path not in sys.path:
     sys.path.append(path)
-#
-os.environ['DJANGO_SETTINGS_MODULE'] = 'ascenseur.settings'
-#
-## then, for django >=1.5:
+if path1 not in sys.path:
+    sys.path.append(path1)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'ascenseur.settings.production'
+
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
