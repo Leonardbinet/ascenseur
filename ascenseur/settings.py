@@ -12,6 +12,21 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+# POUR LIRE LES CLES A PARTIR DU FICHIER JSON NON ENREGISTRE DANS GIT
+import json
+from django.core.exceptions import ImproperlyConfigured
+
+with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+    secrets = json.load(secrets_file)
+
+def get_secret(setting, secrets=secrets):
+    """Get secret setting or fail with ImproperlyConfigured"""
+    try:
+        return secrets[setting]
+    except KeyError:
+        raise ImproperlyConfigured("Set the {} setting".format(setting))
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +35,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'kq)b)^+keuftuq7euxy(b)bpzw5^bo=&48hda#(l$39)@c4!5#'
+SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -81,14 +96,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'yomams$ascenseur',
         'USER': 'yomams',
-        'PASSWORD': '(~K7!v,2=tav',
+        'PASSWORD': get_secret('DB_PASSWORD'),
         'HOST': 'yomams.mysql.pythonanywhere-services.com',
-    },
-
-
-    'old': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
