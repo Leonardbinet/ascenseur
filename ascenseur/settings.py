@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'ascenseur.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ascenseur',
+        'NAME': 'yomams$ascenseur',
         'USER': 'yomams',
         'PASSWORD': '(~K7!v,2=tav',
         'HOST': 'yomams.mysql.pythonanywhere-services.com',
-    }
+    },
 
 
     'old': {
