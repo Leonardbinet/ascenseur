@@ -14,5 +14,6 @@
 
 bdd_dev
 
-/articles/migrations/*
-/prestataires/migrations/*
+#/articles/migrations/*
+#/prestataires/migrations/*
+data_backup.json
