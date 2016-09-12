@@ -17,6 +17,8 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from . import views
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import ArticleSitemap, PrestatairesSitemap, StaticViewSitemap
 
 urlpatterns = [
     url(r'^$', views.index, name="accueil"),
@@ -24,4 +26,14 @@ urlpatterns = [
     url(r'^prestataires/',include('prestataires.urls')),
 
     url(r'^admin/', admin.site.urls),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps':
+                                         {'articles':ArticleSitemap, 'presataires':PrestatairesSitemap, 'static':StaticViewSitemap}},
+    name='django.contrib.sitemaps.views.sitemap')
+
+
 ]
+
+
+
+
+
