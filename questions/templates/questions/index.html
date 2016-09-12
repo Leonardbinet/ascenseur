@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block meta_desc %}
+    <meta name="description" content="Trouvez les réponses à vos questions ou posez nous votre question, nous y répondrons rapidement!">
+{% endblock %}
+
+
+{% block body_block %}
+<header style="background-image: url({% static 'Bootstrap/img/header6.jpg' %});min-height: 70%;">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1>Foire aux questions</h1>
+            <br>
+            <p>Trouvez les réponses à vos questions ou posez nous votre question, nous y répondrons rapidement!</p>
+        </div>
+    </div>
+</header>
+<br>
+<article>
+    <div class="container">
+        <div class="row">
+
+            {% for categorie in categories %}
+            <div class="col-md-4">
+                <h2>{{ categorie.nom }}</h2>
+                <p>{{ categorie.description }}</p>
+                <br>
+                <div class ="articles">
+                    {% for question in questions %}
+                        {% if question.categorie == categorie %}
+                            <p><a class="btn btn-default" href="/questions/{{ question.slug }}/" role="button">{{ questions.question }} »</a></p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</article>
+<hr class="primary"></hr>
+
+
+{% endblock %}

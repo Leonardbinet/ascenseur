@@ -39,4 +39,4 @@ def article_lecture(request, article_name_slug):
         pass
 
     # Go render the response and return it to the client.
-    return render(request, 'prestataires/article_lecture.html', context_dict)
+    return render(request, 'prestataires/question_lecture.html', context_dict)

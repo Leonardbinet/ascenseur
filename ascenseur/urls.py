@@ -24,12 +24,12 @@ urlpatterns = [
     url(r'^$', views.index, name="accueil"),
     url(r'^articles/',include('articles.urls')),
     url(r'^prestataires/',include('prestataires.urls')),
+    url(r'^questions/',include('questions.urls')),
 
     url(r'^admin/', admin.site.urls),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps':
                                          {'articles':ArticleSitemap, 'presataires':PrestatairesSitemap, 'static':StaticViewSitemap}},
     name='django.contrib.sitemaps.views.sitemap')
-
 
 ]
 
