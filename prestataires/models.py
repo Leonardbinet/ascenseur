@@ -25,6 +25,8 @@ class liste_Prestataires(models.Model):
                     #self.slug = slugify(self.name)
             self.slug = slugify(self.titre_article)
             super(liste_Prestataires, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return "/prestataire/"+str(self.slug)
 
     def __str__(self):
         return self.nom

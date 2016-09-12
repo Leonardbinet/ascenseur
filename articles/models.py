@@ -19,6 +19,9 @@ class Article(models.Model):
     categorie = models.ForeignKey(Categorie)
     slug = models.SlugField()
 
+    def get_absolute_url(self):
+        return "/articles/"+str(self.slug)
+
     def save(self, *args, **kwargs):
             # Uncomment if you don't want the slug to change every time the name changes
             #if self.id is None:
