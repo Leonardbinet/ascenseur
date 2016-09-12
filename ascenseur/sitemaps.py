@@ -8,7 +8,7 @@ from prestataires.models import liste_Prestataires
 
 class ArticleSitemap(Sitemap):
     changefreq = "monthly"
-    priority = 0.5
+    priority = 0.8
 
     def items(self):
         return Article.objects.all()
@@ -23,7 +23,7 @@ class PrestatairesSitemap(Sitemap):
 
 
 class StaticViewSitemap(sitemaps.Sitemap):
-    priority = 0.5
+    priority = 1
     changefreq = 'monthly'
 
     def items(self):

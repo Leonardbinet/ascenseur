@@ -8,6 +8,7 @@ class Categorie(models.Model):
     name_db = models.CharField(max_length=50)
     nom = models.CharField(max_length=200)
     description = models.TextField()
+    meta_description = models.TextField(max_length=155, null=True)
     def __unicode__(self):
         return self.nom
 
@@ -18,6 +19,7 @@ class Article(models.Model):
     body = models.TextField()
     categorie = models.ForeignKey(Categorie)
     slug = models.SlugField()
+    meta_description = models.TextField(max_length=155, null=True)
 
     def get_absolute_url(self):
         return "/articles/"+str(self.slug)

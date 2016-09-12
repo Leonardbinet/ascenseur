@@ -27,6 +27,7 @@ def article_lecture(request, article_name_slug):
         context_dict['nom_article'] = article.titre_article
         context_dict['description_article'] = article.description
         context_dict['body_article'] = article.body
+        context_dict['meta_desc'] = article.meta_description
 
 
     except Article.DoesNotExist:
