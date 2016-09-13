@@ -14,10 +14,10 @@ class Categorie(models.Model):
 class Question(models.Model):
     name_db = models.CharField(max_length=50, primary_key=True)
     question = models.TextField()
-    categorie = models.ForeignKey(Categorie, null=True)
-    slug = models.SlugField(null=True)
-    meta_description = models.TextField(max_length=155, null=True)
-    reponse = models.TextField(null=True)
+    categorie = models.ForeignKey(Categorie)
+    slug = models.SlugField(null=True,blank=True)
+    meta_description = models.TextField(max_length=155, null=True, blank=True)
+    reponse = models.TextField(null=True,blank=True)
     repondue = models.NullBooleanField(default=False)
     affichage = models.NullBooleanField(default=False)
 
@@ -25,7 +25,7 @@ class Question(models.Model):
         return "/questions/"+str(self.slug)
 
     def save(self, *args, **kwargs):
-            self.slug = slugify(self.titre_article)
+            self.slug = slugify(self.name_db)
             super(Question, self).save(*args, **kwargs)
 
     def __unicode__(self):

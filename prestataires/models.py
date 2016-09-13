@@ -9,7 +9,7 @@ from django.db import models
 class Type_prestataire(models.Model):
     nom_categorie = models.CharField(max_length=200)
     description = models.TextField()
-    meta_description = models.TextField(max_length=155)
+    meta_description = models.TextField(max_length=155, null=True, blank=True)
     def __unicode__(self):
         return self.nom_categorie
 
@@ -18,8 +18,8 @@ class liste_Prestataires(models.Model):
     nom = models.CharField(max_length=200)
     description = models.TextField()
     categorie = models.ForeignKey(Type_prestataire)
-    slug = models.SlugField()
-    meta_description = models.TextField(max_length=155)
+    slug = models.SlugField(null=True, blank=True)
+    meta_description = models.TextField(max_length=155,null=True, blank=True)
 
     def save(self, *args, **kwargs):
             # Uncomment if you don't want the slug to change every time the name changes
@@ -28,7 +28,7 @@ class liste_Prestataires(models.Model):
             self.slug = slugify(self.titre_article)
             super(liste_Prestataires, self).save(*args, **kwargs)
     def get_absolute_url(self):
-        return "/prestataire/"+str(self.slug)
+        return "/prestataires/"+str(self.slug)
 
     def __str__(self):
         return self.nom

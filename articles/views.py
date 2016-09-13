@@ -10,7 +10,7 @@ def index(request):
     context = {}
     context['categories']= categories
     context['nbcat']= categories.count()
-    context['questions']= articles
+    context['articles']= articles
     return render(request,'articles/index.html',context)
 
 def article_lecture(request, article_name_slug):
