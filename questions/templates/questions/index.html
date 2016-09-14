@@ -30,79 +30,52 @@
             <br/>
             <div class="col-lg-12 col-sm-12">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                    {% for categorie in categories %}
                     <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingOne">
+                        <div class="panel-heading" role="tab" id="{{ categorie.name_db }}">
                             <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">                              La maintenance
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ categorie.name_db }}" aria-expanded="false" aria-controls="collapse{{ categorie.name_db }}"> {{ categorie.nom }}
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapse{{ categorie.name_db }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ categorie.name_db }}">
                             <div class="panel-body">
                                 <div class="col-lg-6 col-sm-6">
+                                    <p>{{ categorie.description }}</p>
                                     <ul>
+                                        {% for question in questions %}
+                                            {% if question.categorie == categorie %}
                                         <li>
-                                            <a role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >Quelles sont les pièces comprises au titre du contrat de maintenance</a>
+                                            <a role="button" data-toggle="collapse" href="#collapse{{ question.name_db }}" aria-expanded="false" aria-controls="collapse{{ question.name_db }}" >{{ question.question }}</a>
                                         </li>
-                                        <div class="collapse" id="collapseExample">
-                                            Les pièces comprises au titre du contrat de maintenance sont blablabla cela dépend
-                                            de votre contrat mais il faut savoir que c'est souvent lié à blablalba
+                                        <div class="collapse" id="collapse{{ question.name_db }}">
+                                            {{ question.reponse }}
                                         </div>
-                                        <li>
-                                            <a class="page-scroll" href="">Que signifient les références AFNOR</a>
-                                        </li>
-                                        <li>
-                                            <a class="page-scroll" href="">Vétusté, obsolescence, quésako? </a>
-                                        </li>
-                                        <li>
-                                            <a class="page-scroll" href="">En combien de temps le prestataires doit il intervenir lors d'une panne?</a>
-                                        </li>
+                                            {% endif %}
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 jumbotron">
                                     Articles relatifs à cette catégorie:
 
                                 </div>
+
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+
+
                     <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingTwo">
+                        <div class="panel-heading" role="tab" id="headingform">
                             <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Les réglementations
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="panel-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingThree">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Les travaux à réaliser
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="panel-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab" id="headingFour">
-                            <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseform" aria-expanded="false" aria-controls="collapseform">
                                 Vous n'avez pas trouvé réponse à votre question?
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div id="collapseform" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingform">
                             <div class="panel-body">
                                 Posez nous votre question ici, nous tenterons d'y répondre dans les meilleures délais:
                                 <form class="form-contact" action="/questions/" method="POST">
@@ -127,26 +100,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-6">
-            </div>
-
-        </div>
-        <div class="row">
-
-            {% for categorie in categories %}
-            <div class="col-md-4">
-                <h2>{{ categorie.nom }}</h2>
-                <p>{{ categorie.description }}</p>
-                <br>
-                <div class ="articles">
-                    {% for question in questions %}
-                        {% if question.categorie == categorie %}
-                            <p><a class="btn btn-default" href="/questions/{{ question.slug }}/" role="button">{{ questions.question }} »</a></p>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-            {% endfor %}
 
         </div>
 

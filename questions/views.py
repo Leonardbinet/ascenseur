@@ -23,7 +23,7 @@ def index(request):
         form = QuestionForm()
 
     categories = Categorie.objects.all()
-    questions = Question.objects.all()
+    questions = Question.objects.filter(affichage = True)
     context = {}
     context['categories']= categories
     context['nbcat']= categories.count()
