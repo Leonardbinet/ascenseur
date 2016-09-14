@@ -8,6 +8,7 @@ class Categorie(models.Model):
     nom = models.CharField(max_length=200)
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True)
+    ordre = models.IntegerField(null=True,blank=True,default=10)
     def __unicode__(self):
         return self.nom
 
@@ -21,6 +22,8 @@ class Question(models.Model):
     repondue = models.NullBooleanField(default=False)
     affichage = models.NullBooleanField(default=False)
     mail_demande = models.EmailField(blank=True,null=True, verbose_name='Votre mail', default="exemple@mail.com")
+    ordre = models.IntegerField(null=True,blank=True,default=10)
+
 
     def get_absolute_url(self):
         return "/questions/"+str(self.slug)
