@@ -13,14 +13,14 @@ class Categorie(models.Model):
 
 class Question(models.Model):
     name_db = models.CharField(max_length=50, primary_key=True)
-    question = models.TextField(verbose_name='Votre question')
+    question = models.TextField(verbose_name='Votre question',default="Question...")
     categorie = models.ForeignKey(Categorie, blank=True, null=True)
     slug = models.SlugField(null=True,blank=True)
     meta_description = models.TextField(max_length=155, null=True, blank=True)
     reponse = models.TextField(null=True,blank=True)
     repondue = models.NullBooleanField(default=False)
     affichage = models.NullBooleanField(default=False)
-    mail_demande = models.EmailField(blank=True,null=True, verbose_name='Votre mail')
+    mail_demande = models.EmailField(blank=True,null=True, verbose_name='Votre mail', default="exemple@mail.com")
 
     def get_absolute_url(self):
         return "/questions/"+str(self.slug)

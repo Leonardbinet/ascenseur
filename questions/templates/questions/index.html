@@ -33,12 +33,11 @@
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
                             <h4 class="panel-title">
-                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                              La maintenance
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">                              La maintenance
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <div class="col-lg-6 col-sm-6">
                                     <ul>
@@ -66,6 +65,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingTwo">
                             <h4 class="panel-title">
@@ -105,10 +105,21 @@
                         <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                             <div class="panel-body">
                                 Posez nous votre question ici, nous tenterons d'y répondre dans les meilleures délais:
-                                <form class ="form-contact" action="/questions/" method="post">
-                                    {% csrf_token %}
-                                    {{ form }}
-                                    <input type="submit" value="Envoyer" />
+                                <form class="form-contact" action="/questions/" method="POST">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                <fieldset class="form-group">
+                                  <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                                    <div class="">
+                                      <input type="text" class="form-control"
+                                        name="{{ field.name }}"
+                                        id="id_{{ field.name }}"
+                                        value="{{ field.value }}" >
+                                        <p class="help-text">{{ field.help_text }} </p>
+                                       </div>
+                                </fieldset>
+                                {% endfor %}
+                                   <input type="submit" value="Envoyer"  class="btn btn-primary">
                                 </form>
 
                             </div>
