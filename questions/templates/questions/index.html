@@ -42,7 +42,6 @@
                         <div id="collapse{{ categorie.name_db }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ categorie.name_db }}">
                             <div class="panel-body">
                                 <div class="col-lg-6 col-sm-6">
-                                    <p>{{ categorie.description }}</p>
                                     <ul>
                                         {% for question in questions %}
                                             {% if question.categorie == categorie %}
