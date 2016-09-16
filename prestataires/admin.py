@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Prestataires, Categorie
+from .models import Prestataire, Categorie
 
-admin.site.register(Prestataires)
+admin.site.register(Prestataire)
 admin.site.register(Categorie)

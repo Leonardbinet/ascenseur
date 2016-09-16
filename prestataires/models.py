@@ -28,7 +28,7 @@ class Categorie(models.Model):
 
 
 
-class Prestataires(models.Model):
+class Prestataire(models.Model):
     nom_db = models.CharField(max_length=200)
     nom = models.CharField(max_length=200)
     description = models.TextField()
@@ -42,7 +42,7 @@ class Prestataires(models.Model):
             #if self.id is None:
                     #self.slug = slugify(self.name)
             self.slug = slugify(self.nom)
-            super(Prestataires, self).save(*args, **kwargs)
+            super(Prestataire, self).save(*args, **kwargs)
     def get_absolute_url(self):
         return "/prestataires/"+str(self.slug)
 

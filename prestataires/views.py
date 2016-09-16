@@ -4,12 +4,12 @@
 
 from django.shortcuts import render
 from django.template import loader
-from .models import Prestataires, Categorie
+from .models import Prestataire, Categorie
 
 
 
 def index(request):
-    prestataires = Prestataires.objects.all()
+    prestataires = Prestataire.objects.all()
     cat_ascensoriste = Categorie.objects.get(nom_db=u"ascensoriste")
     cat_controleur = Categorie.objects.get(nom_db=u"controleur")
     context = {
@@ -36,10 +36,10 @@ def categorie(request, cat_name_slug):
 
         try:
             # essaie de prendre des prestataires dans cette catégorie
-            prestataires=Prestataires.objects.filter(categorie=categorie_prestataire)
+            prestataires=Prestataire.objects.filter(categorie=categorie_prestataire)
             context_dict['prestataires']=prestataires
 
-        except Prestataires.DoesNotExist:
+        except Prestataire.DoesNotExist:
             pass
 
     except Categorie.DoesNotExist:
