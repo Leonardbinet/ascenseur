@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 # Create your views here.
 
@@ -35,12 +36,19 @@ def categorie(request, cat_name_slug):
 
         context_dict['categorie'] = categorie_prestataire
 
+        try:
+            # essaie de prendre des prestataires dans cette catégorie
+            prestataires=liste_Prestataires.objects.filter(categorie=categorie_prestataire)
+            context_dict['prestataires']=prestataires
 
+        except liste_Prestataires.DoesNotExist:
+            pass
 
     except Type_prestataire.DoesNotExist:
         # We get here if we didn't find the specified article.
         # Don't do anything - the template displays the "no category" message for us.
         pass
+
 
     # Go render the response and return it to the client.
     return render(request, 'prestataires/categorie.html', context_dict)
