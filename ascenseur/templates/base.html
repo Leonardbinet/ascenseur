@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load staticfiles %}
+{% load user_agents %}
 
 <head>
 
@@ -58,7 +59,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'accueil' %}">Votre ascenseur de copropriété</a>
+                <a class="navbar-brand page-scroll" href="{% url 'accueil' %}">
+                    {% if request.user_agent.is_mobile %}
+                    Ascenseur en copropriété
+                    {% else %}
+                    Votre ascenseur de copropriété
+                    {% endif %}
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

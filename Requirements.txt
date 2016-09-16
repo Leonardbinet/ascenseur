@@ -1,5 +1,8 @@
-
 Django==1.9.2
-MySQL-python 
 django-extensions==1.7.4
-pillow==3.3.1
+django-user-agents==0.3.0
+Pillow==3.3.1
+six==1.10.0
+ua-parser==0.7.1
+user-agents==1.0.1
+MySQL-python==1.2.5
