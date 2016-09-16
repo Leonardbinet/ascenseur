@@ -8,15 +8,22 @@
         <div class="header-content-inner">
             <h1 style="color: #333;">{{ categorie.nom }}</h1>
             <br>
-            <p style="color: #333;">Choisissez votre ascensoriste</p>
+            <p style="color: #333;">Choisissez votre {{ categorie.nom }}</p>
             <a href="#choix" class="btn btn-default btn-xl page-scroll">Accéder</a>
 
         </div>
     </div>
 </header>
 
-<section id="choix">
+{% if prestataires %}
+
+<section id="liste">
     <div class="container">
+        <div class="row">
+            {{ categorie.texte_page|safe }}
+
+
+        </div>
         <div class="row">
             <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
                 <div class="btn-group" role="group">
@@ -35,24 +42,18 @@
                     </label>
                 </div>
             </div>
+            <br/>
         </div>
-    </div>
-</section>
-
-
-
-{% if prestataires %}
-
-<section class="no-padding" id="portfolio">
-    <div class="container-fluid">
         <div class="row">
-            {% for prestataire in prestataires %}
 
+            {% for prestataire in prestataires %}
 
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
+                    {% else %}
+                    <img src="{{ categorie.logo_defaut.url }}" class="img-responsive" alt="">
                     {% endif %}
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">

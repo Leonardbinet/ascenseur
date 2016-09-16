@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 from django.template.defaultfilters import slugify
 
@@ -10,6 +12,9 @@ class Type_prestataire(models.Model):
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
+    logo_defaut = models.ImageField(upload_to="logos/categorie/",blank=True,null=True, default=None)
+    texte_page = models.TextField(blank=True,default="à remplir")
+
 
     def save(self, *args, **kwargs):
         # Uncomment if you don't want the slug to change every time the name changes

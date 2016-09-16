@@ -17,11 +17,6 @@ def index(request):
     return render(request,'prestataires/index.html',context)
 
 
-def ascensoristes(request):
-    context = {
-    }
-    return render(request,'prestataires/section_asc.html',context)
-
 
 def categorie(request, cat_name_slug):
 
