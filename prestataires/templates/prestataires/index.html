@@ -53,12 +53,13 @@
         <div class="row">
             <br/>
             {% for prestataire in prestataires %}
+            {% if prestataire.categorie.nom_db == "ascensoriste" %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
                     {% else %}
-                    <img src="{{ categorie.logo_defaut.url }}" class="img-responsive" alt="">
+                    <img src="{{ cat_ascensoriste.logo_defaut.url }}" class="img-responsive" alt="">
                     {% endif %}
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -72,6 +73,7 @@
                     </div>
                 </a>
             </div>
+            {% endif %}
 
             {% endfor %}
         </div>
@@ -108,6 +110,35 @@
                     <p class="text-muted">Description</p>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <br/>
+            {% for prestataire in prestataires %}
+            {% if prestataire.categorie.nom_db == "controleur" %}
+            <div class="col-lg-2 col-sm-2">
+                <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
+                    {% if prestataire.logo %}
+                    <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
+                    {% else %}
+                    <img src="{{ cat_controleur.logo_defaut.url }}" class="img-responsive" alt="">
+                    {% endif %}
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                {{ prestataire.nom }}
+                            </div>
+                            <div class="project-name">
+                                {{ prestataire.description }}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endif %}
+
+            {% endfor %}
         </div>
     </div>
 </section>

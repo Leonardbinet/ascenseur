@@ -9,10 +9,13 @@ from .models import liste_Prestataires, Type_prestataire
 
 
 def index(request):
-    liste_prest = liste_Prestataires.objects.all()
-
+    prestataires = liste_Prestataires.objects.all()
+    cat_ascensoriste = Type_prestataire.objects.get(nom_db=u"ascensoriste")
+    cat_controleur = Type_prestataire.objects.get(nom_db=u"controleur")
     context = {
-        "prestataires":liste_prest,
+        "prestataires":prestataires,
+        "cat_ascensoriste":cat_ascensoriste,
+        "cat_controleur":cat_controleur,
     }
     return render(request,'prestataires/index.html',context)
 
