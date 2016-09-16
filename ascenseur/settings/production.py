@@ -49,7 +49,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 # endroit ou ce sera stocké sur le serveur
-STATIC_ROOT = '/home/yomams/static/'
+STATIC_ROOT = os.path.join(ENV_DIR, 'static/')
 # url à laquelle elle sera servie : www.ascenseur-en-copropriete.com/static/
 STATIC_URL = '/static/'
 # endroit où les fichier statiques sont avant collectstatic, avant d'être dans static root
@@ -57,5 +57,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "ascenseur/static"),
 ]
 
-MEDIA_ROOT = '/home/yomams/media/'
+MEDIA_ROOT = os.path.join(ENV_DIR, 'media/')
 MEDIA_URL = '/media/'
