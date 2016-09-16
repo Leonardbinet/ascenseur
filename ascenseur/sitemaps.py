@@ -2,7 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from django.contrib import sitemaps
 from django.core.urlresolvers import reverse
 from articles.models import Article
-from prestataires.models import liste_Prestataires
+from prestataires.models import Prestataires
 
 
 
@@ -19,7 +19,7 @@ class PrestatairesSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return liste_Prestataires.objects.all()
+        return Prestataires.objects.all()
 
 
 class StaticViewSitemap(sitemaps.Sitemap):
