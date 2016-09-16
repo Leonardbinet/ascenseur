@@ -56,8 +56,11 @@
                 <h2>{{ prestataire.nom }}</h2>
                 <p>{{ prestataire.description }}</p>
                 <br>
+                {% if prestataire.logo %}
                 <img src="{{ prestataire.logo.url }}"> </img>
+                {% endif %}
             </div>
+
             {% endfor %}
         </div>
     </div>
