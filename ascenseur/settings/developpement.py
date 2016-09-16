@@ -1,8 +1,8 @@
+# -*- coding: utf-8 -*-
+
 from .base import *
 
-
 DEBUG = True
-
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -15,3 +15,18 @@ DATABASES = {
 }
 
 SECRET_KEY = "development"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+# endroit ou ce sera stocké sur le serveur
+STATIC_ROOT = '/Users/leonardbinet/Documents/Projet ascenseur/deploy/static/'
+# url à laquelle elle sera servie : www.ascenseur-en-copropriete.com/static/
+STATIC_URL = '/static/'
+# endroit où les fichier statiques sont avant collectstatic, avant d'être dans static root
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "ascenseur/static"),
+]
+
+MEDIA_ROOT = '/Users/leonardbinet/Documents/Projet ascenseur/deploy/media/'
+MEDIA_URL = '/media/'

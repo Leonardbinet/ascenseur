@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -90,14 +91,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "ascenseur/static"),
-]
-STATIC_ROOT = "/home/yomams/static"
 GOOGLE_ANALYTICS_KEY = "UA-83965114-1"
 

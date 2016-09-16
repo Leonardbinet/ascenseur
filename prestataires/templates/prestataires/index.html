@@ -49,6 +49,18 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            {% for prestataire in prestataires %}
+            <div class="col-md-4">
+                <h2>{{ prestataire.nom }}</h2>
+                <p>{{ prestataire.description }}</p>
+                <br>
+                <img src="{{ prestataire.logo.url }}"> </img>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 <section id="audit" class="bg-gris">
     <div class="container">

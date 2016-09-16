@@ -8,7 +8,10 @@ from .models import liste_Prestataires, Type_prestataire
 
 
 def index(request):
+    liste_prest = liste_Prestataires.objects.all()
+
     context = {
+        "prestataires":liste_prest,
     }
     return render(request,'prestataires/index.html',context)
 

@@ -2,3 +2,4 @@
 Django==1.9.2
 MySQL-python 
 django-extensions==1.7.4
+pillow==3.3.1

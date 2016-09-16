@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .base import *
 
 import os
@@ -42,3 +44,18 @@ DATABASES = {
         'HOST': 'yomams.mysql.pythonanywhere-services.com',
     }
 }
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
+
+# endroit ou ce sera stocké sur le serveur
+STATIC_ROOT = '/home/yomams/static/'
+# url à laquelle elle sera servie : www.ascenseur-en-copropriete.com/static/
+STATIC_URL = '/static/'
+# endroit où les fichier statiques sont avant collectstatic, avant d'être dans static root
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "ascenseur/static"),
+]
+
+MEDIA_ROOT = '/home/yomams/media/'
+MEDIA_URL = '/media/'
