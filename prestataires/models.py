@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Type_prestataire(models.Model):
-    nom_db= models.CharField(max_length=200,primary_key=True)
+    nom_db= models.CharField(max_length=200)
     nom_categorie = models.CharField(max_length=200)
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True, blank=True)
@@ -15,7 +15,7 @@ class Type_prestataire(models.Model):
 
 
 class liste_Prestataires(models.Model):
-    nom_db = models.CharField(max_length=200,primary_key=True)
+    nom_db = models.CharField(max_length=200)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     categorie = models.ForeignKey(Type_prestataire)

@@ -12,10 +12,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='type_prestataire',
-            name='id',
-        ),
+
         migrations.AddField(
             model_name='liste_prestataires',
             name='logo',
@@ -24,7 +21,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='type_prestataire',
             name='nom_db',
-            field=models.CharField(default=1, max_length=200, primary_key=True, serialize=False),
-            preserve_default=False,
+            field=models.CharField(default=1, max_length=200, serialize=False),
         ),
     ]
