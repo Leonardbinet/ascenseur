@@ -19,7 +19,7 @@ class PrestatairesSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Prestataires.objects.all()
+        return Prestataire.objects.all()
 
 
 class StaticViewSitemap(sitemaps.Sitemap):
