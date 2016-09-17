@@ -24,8 +24,17 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <br><br><br>
+                    {% if not nom_article %}
+
+                    <p>Désolé mais nous n'avons pas trouvé votre article à cette URL!</p>
+                    <br/>
+
+                    <p><a class="btn btn-default" href="/articles/" role="button">Retour aux dossiers thématiques »</a></p>
+
+                    {% else %}
                     <h2>{{ nom_article }}</h2>
                     {{ body_article|safe }}
+                    {% endif %}
 
                 </div>
         </div>

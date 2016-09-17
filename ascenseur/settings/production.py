@@ -28,7 +28,7 @@ SECRET_KEY = get_secret('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [u'www.ascenseur-en-copropriete.com']
+ALLOWED_HOSTS = [u'www.ascenseur-en-copropriete.com',u'www.ascenseur-en-copropriete.fr']
 
 
 
