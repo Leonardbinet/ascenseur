@@ -12,10 +12,13 @@ def index(request):
     prestataires = Prestataire.objects.all()
     cat_ascensoriste = Categorie.objects.get(nom_db=u"ascensoriste")
     cat_controleur = Categorie.objects.get(nom_db=u"controleur")
+    cat_bureau_etude = Categorie.objects.get(nom_db=u"bureau_etude")
     context = {
         "prestataires":prestataires,
         "cat_ascensoriste":cat_ascensoriste,
         "cat_controleur":cat_controleur,
+        "cat_bureau_etude":cat_bureau_etude,
+
     }
     return render(request,'prestataires/index.html',context)
 
