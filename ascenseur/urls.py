@@ -21,6 +21,8 @@ from .sitemaps import ArticleSitemap, PrestatairesSitemap, StaticViewSitemap
 from django.views.generic.base import TemplateView
 from os import environ
 
+handler404 = 'ascenseur.views.my_error_404'
+
 urlpatterns = [
     url(r'^$', views.index, name="accueil"),
     url(r'^articles/',include('articles.urls')),
