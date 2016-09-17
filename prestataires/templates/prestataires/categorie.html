@@ -8,8 +8,8 @@
         <div class="header-content-inner">
             <h1 style="color: #333;">{{ categorie.nom }}</h1>
             <br>
-            <p style="color: #333;">Choisissez votre {{ categorie.nom }}</p>
-            <a href="#choix" class="btn btn-default btn-xl page-scroll">Accéder</a>
+
+            <a href="#liste" class="btn btn-default btn-xl page-scroll">Accéder</a>
 
         </div>
     </div>
@@ -19,46 +19,72 @@
 <section id="liste">
     <div class="container">
         <div class="row">
-            <br/>
-            {{ categorie.texte_page|safe }}
-            <br/>
-            <br/>
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <h2 class="section-heading">Choisissez votre {{ categorie.nom }}</h2>
+                <br/>
+                <hr class ="primary"></hr>
+                <br/>
+                {{ categorie.texte_page|safe }}
+                <br/>
+                <br/>
+            </div>
 
         </div>
 
         <div class="row">
-
-            {% for prestataire in prestataires %}
-
-            <div class="col-lg-2 col-sm-2">
-                <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
-                    {% if prestataire.logo %}
-                    <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
-                    {% else %}
-                    <img src="{{ categorie.logo_defaut.url }}" class="img-responsive" alt="">
-                    {% endif %}
-                    <div class="portfolio-box-caption">
-                        <div class="portfolio-box-caption-content">
-                            <div class="project-category text-faded">
-                                {{ prestataire.nom }}
-                            </div>
-                            <div class="project-name">
-                                {{ prestataire.description }}
+            <div class="col-md-9">
+                {% for prestataire in prestataires %}
+                <div class="col-md-3" onClick="document.getElementById('description').innerHTML='<p>{{ prestataire.description }}</p> <br/><a href=\'/prestataires/{{ prestataire.slug }}\'>Accéder au site <a> ';" >
+                    <div class="portfolio-box" onmouseover="this.style.cursor='pointer'">
+                        {% if prestataire.logo %}
+                        <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
+                        {% else %}
+                        <img src="{{ categorie.logo_defaut.url }}" class="img-responsive" alt="">
+                        {% endif %}
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    en savoir plus
+                                </div>
+                                <div class="project-name">
+                                    {{ prestataire.nom }}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
+                {% endfor %}
             </div>
-
-            {% endfor %}
+            <div class="col-md-3 well">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#col">Plus de détail </button>
+                <div id="col" class="collapse">
+                    <br/>
+                    <div id ="description">
+                        <p>Cliquez sur les logos pour afficher la description </p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
 </section>
+    <div class="container">
+        <div class="row">
+        </div>
+
+
+
+    </div>
+
 
 {% endif %}
 
 <hr class="primary">
 
+{% endblock %}
+
+
+
+{% block js_block %}
 
 {% endblock %}
