@@ -55,7 +55,7 @@
             {% for prestataire in prestataires %}
             {% if prestataire.categorie.nom_db == "ascensoriste" %}
             <div class="col-lg-2 col-sm-2">
-                <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
+                <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
                     {% else %}
@@ -118,7 +118,7 @@
             {% for prestataire in prestataires %}
             {% if prestataire.categorie.nom_db == "controleur" %}
             <div class="col-lg-2 col-sm-2">
-                <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
+                <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
                     {% else %}
@@ -181,7 +181,7 @@
             {% for prestataire in prestataires %}
             {% if prestataire.categorie.nom_db == "bureau_etude" %}
             <div class="col-lg-2 col-sm-2">
-                <a href="/prestataires/{{ prestataire.slug }}" class="portfolio-box">
+                <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
                     {% else %}

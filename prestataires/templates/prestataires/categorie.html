@@ -3,7 +3,7 @@
 
 
 {% block body_block %}
-<header style="background-image: url({% static 'Bootstrap/img/header5.jpg' %});min-height: 70%;">
+<header style="background-image: url({% static 'Bootstrap/img/header5.jpg' %});min-height: 60%;">
     <div class="header-content">
         <div class="header-content-inner">
             <h1 style="color: #333;">{{ categorie.nom }}</h1>
@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-md-9">
                 {% for prestataire in prestataires %}
-                <div class="col-md-3" onClick="document.getElementById('description').innerHTML='<p>{{ prestataire.description }}</p> <br/><a href=\'/prestataires/{{ prestataire.slug }}\'>Accéder au site <a> ';" >
+                <div class="col-md-3" onClick="document.getElementById('description').innerHTML='<p>{{ prestataire.description }}</p> <br/><a href=\'/prestataires/prestataire/{{ prestataire.slug }}\'>Accéder au site <a> ';" >
                     <div class="portfolio-box" onmouseover="this.style.cursor='pointer'">
                         {% if prestataire.logo %}
                         <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
@@ -70,13 +70,6 @@
         </div>
     </div>
 </section>
-    <div class="container">
-        <div class="row">
-        </div>
-
-
-
-    </div>
 
 
 {% endif %}

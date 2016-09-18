@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block body_block %}
+<header style="background-image: url({% static 'Bootstrap/img/header5.jpg' %});min-height: 40%;">
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 style="color: #333;"></h1>
+            <br>
+
+
+        </div>
+    </div>
+</header>
+
+{% if prestataire %}
+<section id="liste">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <h2 class="section-heading"> {{ prestataire.nom }}</h2>
+                <br/>
+                <hr class ="primary"></hr>
+                <br/>
+                {{ prestataire.description }}
+                <br/>
+                <br/>
+            </div>
+
+        </div>
+
+{% endif %}
+
+<hr class="primary">
+
+{% endblock %}
+
+
+
+{% block js_block %}
+
+{% endblock %}
