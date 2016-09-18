@@ -34,7 +34,6 @@ def categorie(request, cat_name_slug):
         # If we can't, the .get() method raises a DoesNotExist exception.
         # So the .get() method returns one model instance or raises an exception.
         categorie_prestataire = Categorie.objects.get(slug=cat_name_slug)
-
         context_dict['categorie'] = categorie_prestataire
 
         try:
