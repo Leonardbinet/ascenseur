@@ -17,9 +17,6 @@ class Categorie(models.Model):
 
 
     def save(self, *args, **kwargs):
-        # Uncomment if you don't want the slug to change every time the name changes
-        #if self.id is None:
-                #self.slug = slugify(self.name)
         self.slug = slugify(self.nom)
         super(Categorie, self).save(*args, **kwargs)
 

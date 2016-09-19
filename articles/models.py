@@ -3,7 +3,6 @@ from django.db import models
 from django.template.defaultfilters import slugify
 
 class Categorie(models.Model):
-    #name_db = models.CharField(max_length=50)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     meta_description = models.TextField(max_length=155, blank=True)
@@ -11,7 +10,6 @@ class Categorie(models.Model):
         return self.nom
 
 class Article(models.Model):
-    #name_db = models.CharField(max_length=50)
     titre_article = models.CharField(max_length=300)
     titre_court = models.CharField(max_length=60,blank=True,default=None,null=True)
     description = models.TextField()

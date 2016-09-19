@@ -4,7 +4,6 @@ from django.template.defaultfilters import slugify
 
 
 class Categorie(models.Model):
-    name_db = models.CharField(max_length=50, primary_key=True)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True)
@@ -13,8 +12,8 @@ class Categorie(models.Model):
         return self.nom
 
 class Question(models.Model):
-    name_db = models.CharField(max_length=50, primary_key=True)
     question = models.TextField(verbose_name='Votre question',default="Question...")
+    question_courte = models.CharField(max_length=50,default=None,null=True,blank=True)
     categorie = models.ForeignKey(Categorie, blank=True, null=True)
     slug = models.SlugField(null=True,blank=True)
     meta_description = models.TextField(max_length=155, null=True, blank=True)
@@ -29,8 +28,16 @@ class Question(models.Model):
         return "/questions/"+str(self.slug)
 
     def save(self, *args, **kwargs):
-            self.slug = slugify(self.name_db)
-            super(Question, self).save(*args, **kwargs)
+
+        if (self.question_courte== "") or (len(self.question_courte)>47):
+            if (len(self.question)>47):
+                self.question_courte = self.question[:45]+"..."
+            else:
+                self.question_courte=self.question
+        else:
+            pass
+        self.slug = slugify(self.question_courte)
+        super(Question, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.question
