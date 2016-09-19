@@ -6,8 +6,9 @@ from django.template.defaultfilters import slugify
 class Categorie(models.Model):
     nom = models.CharField(max_length=200)
     description = models.TextField()
-    meta_description = models.TextField(max_length=155, null=True)
+    meta_description = models.TextField(max_length=155, null=True, blank=True)
     ordre = models.IntegerField(null=True,blank=True,default=10)
+    slug=models.SlugField(null=True,blank=True,default=slugify(nom))
     def __unicode__(self):
         return self.nom
 
