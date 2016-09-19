@@ -7,7 +7,6 @@ from django.db import models
 
 
 class Categorie(models.Model):
-    #nom_db= models.CharField(max_length=200)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True, blank=True)
@@ -26,7 +25,6 @@ class Categorie(models.Model):
 
 
 class Prestataire(models.Model):
-    #nom_db = models.CharField(max_length=200)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     categorie = models.ForeignKey(Categorie)

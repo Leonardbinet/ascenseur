@@ -54,6 +54,7 @@
             <br/>
             {% for prestataire in prestataires %}
             {% if prestataire.categorie.slug == "ascensoriste" %}
+            {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
@@ -73,8 +74,9 @@
                     </div>
                 </a>
             </div>
+            {% if forloop.counter|divisibleby:5 %}</div><div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
             {% endif %}
-
             {% endfor %}
         </div>
     </div>
@@ -117,12 +119,13 @@
             <br/>
             {% for prestataire in prestataires %}
             {% if prestataire.categorie.slug == "bureau-de-controle" %}
+            {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
                     {% else %}
-                    <img src="{{ cat_controleur.logo_defaut.url }}" class="img-responsive" alt="">
+                    <img src="{{ cat_ascensoriste.logo_defaut.url }}" class="img-responsive" alt="">
                     {% endif %}
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -136,8 +139,9 @@
                     </div>
                 </a>
             </div>
+            {% if forloop.counter|divisibleby:5 %}</div><div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
             {% endif %}
-
             {% endfor %}
         </div>
     </div>
@@ -180,12 +184,13 @@
             <br/>
             {% for prestataire in prestataires %}
             {% if prestataire.categorie.slug == "bureau-detude" %}
+            {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
                     {% if prestataire.logo %}
                     <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
                     {% else %}
-                    <img src="{{ cat_bureau_etude.logo_defaut.url }}" class="img-responsive" alt="">
+                    <img src="{{ cat_ascensoriste.logo_defaut.url }}" class="img-responsive" alt="">
                     {% endif %}
                     <div class="portfolio-box-caption">
                         <div class="portfolio-box-caption-content">
@@ -199,8 +204,9 @@
                     </div>
                 </a>
             </div>
+            {% if forloop.counter|divisibleby:5 %}</div><div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
             {% endif %}
-
             {% endfor %}
         </div>
     </div>
