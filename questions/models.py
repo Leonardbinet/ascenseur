@@ -8,7 +8,11 @@ class Categorie(models.Model):
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True, blank=True)
     ordre = models.IntegerField(null=True,blank=True,default=10)
-    slug=models.SlugField(null=True,blank=True,default=slugify(nom))
+    slug=models.SlugField(null=True,blank=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.nom)
+        super(Categorie, self).save(*args, **kwargs)
     def __unicode__(self):
         return self.nom
 
