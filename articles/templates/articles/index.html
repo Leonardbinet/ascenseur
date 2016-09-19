@@ -23,6 +23,7 @@
         <div class="row">
 
             {% for categorie in categories %}
+            {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-md-4">
                 <h2>{{ categorie.nom }}</h2>
                 <p>{{ categorie.description }}</p>
@@ -37,6 +38,8 @@
                     {% endfor %}
                 </div>
             </div>
+            {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+            {% if forloop.last %}</div>{% endif %}
             {% endfor %}
 
         </div>

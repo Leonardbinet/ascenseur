@@ -36,7 +36,7 @@
                 {% for prestataire in prestataires %}
 
                 {% if forloop.first %}<div class="row">{% endif %}
-                <div class="col-md-3" onClick="document.getElementById('description').innerHTML='<p>{{ prestataire.description }}</p><br/><a href=\'/prestataires/prestataire/{{ prestataire.slug }}\'>Accéder à la fiche de détail</a><br/><a href=\'{{ prestataire.siteweb }}\'> {{ prestataire.siteweb }}</a>' ;" >
+                <div class="col-md-3" onClick="document.getElementById('description').innerHTML='<p>{{ prestataire.description }}</p><br/><a href=\'/prestataires/prestataire/{{ prestataire.slug }}\'>Accéder à la fiche de détail</a><br/><br/><a href=\'{{ prestataire.siteweb }}\'> {{ prestataire.siteweb }}</a>' ;" >
                     <div class="portfolio-box" onmouseover="this.style.cursor='pointer'">
                         {% if prestataire.logo %}
                         <img src="{{ prestataire.logo.url }}" class="img-responsive" alt="">
