@@ -33,6 +33,7 @@ class Prestataire(models.Model):
     slug = models.SlugField(null=True, blank=True)
     meta_description = models.TextField(max_length=155,null=True, blank=True)
     logo = models.ImageField(upload_to="logos/",blank=True,null=True, default=None)
+    siteweb = models.URLField(blank=True,default="")
 
     def save(self, *args, **kwargs):
             self.slug = slugify(self.nom)
