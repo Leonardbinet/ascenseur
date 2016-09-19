@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Categorie(models.Model):
-    nom_db= models.CharField(max_length=200)
+    #nom_db= models.CharField(max_length=200)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     meta_description = models.TextField(max_length=155, null=True, blank=True)
@@ -26,7 +26,7 @@ class Categorie(models.Model):
 
 
 class Prestataire(models.Model):
-    nom_db = models.CharField(max_length=200)
+    #nom_db = models.CharField(max_length=200)
     nom = models.CharField(max_length=200)
     description = models.TextField()
     categorie = models.ForeignKey(Categorie)
@@ -35,9 +35,6 @@ class Prestataire(models.Model):
     logo = models.ImageField(upload_to="logos/",blank=True,null=True, default=None)
 
     def save(self, *args, **kwargs):
-            # Uncomment if you don't want the slug to change every time the name changes
-            #if self.id is None:
-                    #self.slug = slugify(self.name)
             self.slug = slugify(self.nom)
             super(Prestataire, self).save(*args, **kwargs)
     def get_absolute_url(self):

@@ -11,9 +11,9 @@ from .models import Prestataire, Categorie
 def index(request):
     try:
         prestataires = Prestataire.objects.all()
-        cat_ascensoriste = Categorie.objects.get(nom_db=u"ascensoriste")
-        cat_controleur = Categorie.objects.get(nom_db=u"controleur")
-        cat_bureau_etude = Categorie.objects.get(nom_db=u"bureau_etude")
+        cat_ascensoriste = Categorie.objects.get(slug=u"ascensoriste")
+        cat_controleur = Categorie.objects.get(slug=u"bureau-de-controle")
+        cat_bureau_etude = Categorie.objects.get(slug=u"bureau-detude")
         context = {
             "prestataires":prestataires,
             "cat_ascensoriste":cat_ascensoriste,
