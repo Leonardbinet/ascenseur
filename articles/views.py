@@ -23,7 +23,7 @@ def article_lecture(request, article_name_slug):
         # If we can't, the .get() method raises a DoesNotExist exception.
         # So the .get() method returns one model instance or raises an exception.
         article = Article.objects.get(slug=article_name_slug)
-        context_dict['nom_article'] = article.titre_article
+        context_dict['nom_article'] = article.titre_court
         context_dict['description_article'] = article.description
         context_dict['body_article'] = article.body
         context_dict['meta_desc'] = article.meta_description

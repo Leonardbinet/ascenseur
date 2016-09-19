@@ -18,7 +18,7 @@
     </div>
 </header>
 <br>
-<article>
+<section id="article">
     <div class="container">
         <div class="row">
 
@@ -30,7 +30,9 @@
                 <div class ="articles">
                     {% for article in articles %}
                         {% if article.categorie == categorie %}
-                            <p><a class="btn btn-default" href="/articles/{{ article.slug }}/" role="button">{{ article.titre_article }} »</a></p>
+                        <div>
+                            <button class="btn btn-default" href="/articles/{{ article.slug }}/" role="button">{{ article.titre_court }} »</button>
+                        </div>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -40,7 +42,7 @@
         </div>
 
     </div>
-</article>
+</section>
 <hr class="primary"></hr>
 
 
