@@ -52,8 +52,7 @@
     <div class="container">
         <div class="row">
             <br/>
-            {% for prestataire in prestataires %}
-            {% if prestataire.categorie.slug == "ascensoriste" %}
+            {% for prestataire in prest_asc %}
             {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
@@ -76,7 +75,6 @@
             </div>
             {% if forloop.counter|divisibleby:5 %}</div><div class="row">{% endif %}
             {% if forloop.last %}</div>{% endif %}
-            {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -117,8 +115,7 @@
     <div class="container">
         <div class="row">
             <br/>
-            {% for prestataire in prestataires %}
-            {% if prestataire.categorie.slug == "bureau-de-controle" %}
+            {% for prestataire in prest_audit %}
             {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
@@ -141,7 +138,6 @@
             </div>
             {% if forloop.counter|divisibleby:5 %}</div><div class="row">{% endif %}
             {% if forloop.last %}</div>{% endif %}
-            {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -182,8 +178,7 @@
     <div class="container">
         <div class="row">
             <br/>
-            {% for prestataire in prestataires %}
-            {% if prestataire.categorie.slug == "bureau-detude" %}
+            {% for prestataire in prest_etude %}
             {% if forloop.first %}<div class="row">{% endif %}
             <div class="col-lg-2 col-sm-2">
                 <a href="/prestataires/prestataire/{{ prestataire.slug }}" class="portfolio-box">
@@ -206,7 +201,6 @@
             </div>
             {% if forloop.counter|divisibleby:5 %}</div><div class="row">{% endif %}
             {% if forloop.last %}</div>{% endif %}
-            {% endif %}
             {% endfor %}
         </div>
     </div>

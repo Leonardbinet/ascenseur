@@ -14,8 +14,14 @@ def index(request):
         cat_ascensoriste = Categorie.objects.get(slug=u"ascensoriste")
         cat_controleur = Categorie.objects.get(slug=u"bureau-de-controle")
         cat_bureau_etude = Categorie.objects.get(slug=u"bureau-detude")
+        prest_audit=Prestataire.objects.filter(categorie__slug__contains=u'bureau-de-controle')
+        prest_etude=Prestataire.objects.filter(categorie__slug__contains=u'bureau-detude')
+        prest_asc=Prestataire.objects.filter(categorie__slug__contains=u'ascensoriste')
+
         context = {
-            "prestataires":prestataires,
+            "prest_audit":prest_audit,
+            "prest_asc":prest_asc,
+            "prest_etude":prest_etude,
             "cat_ascensoriste":cat_ascensoriste,
             "cat_controleur":cat_controleur,
             "cat_bureau_etude":cat_bureau_etude,
