@@ -2,7 +2,11 @@
 {% load staticfiles %}
 
 {% block title %}
-    <title>{{ nom_article }}</title>
+    {% if article %}
+    <title>{{ article.titre_article }}</title>
+    {% else %}
+    <title> Page non trouvée </title>
+    {% endif %}
 {% endblock %}
 
 {% block meta_desc %}
@@ -10,7 +14,7 @@
 {% endblock %}
 
 {% block body_block %}
-<header style="background-image: url({% static 'Bootstrap/img/header2.jpg' %});min-height: 70%;">
+<header style="background-image: url({% static 'Bootstrap/img/header2.jpg' %});min-height: 50%;">
     <div class="header-content">
         <div class="header-content-inner">
             <h1>Les dossiers thématiques</h1>
@@ -24,7 +28,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <br><br><br>
-                    {% if not nom_article %}
+                    {% if not article %}
 
                     <p>Désolé mais nous n'avons pas trouvé votre article à cette URL!</p>
                     <br/>
@@ -32,8 +36,8 @@
                     <p><a class="btn btn-default" href="/articles/" role="button">Retour aux dossiers thématiques »</a></p>
 
                     {% else %}
-                    <h2>{{ nom_article }}</h2>
-                    {{ body_article|safe }}
+                    <h2>{{ article.titre_article }}</h2>
+                    {{ article.body|safe }}
                     {% endif %}
 
                 </div>
