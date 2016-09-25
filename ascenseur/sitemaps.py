@@ -5,7 +5,6 @@ from articles.models import Article
 from prestataires.models import Prestataire
 
 
-
 class ArticleSitemap(Sitemap):
     changefreq = "monthly"
     priority = 0.8

@@ -25,16 +25,20 @@ handler404 = 'ascenseur.views.my_error_404'
 
 urlpatterns = [
     url(r'^$', views.index, name="accueil"),
-    url(r'^articles/',include('articles.urls')),
-    url(r'^prestataires/',include('prestataires.urls')),
-    url(r'^questions/',include('questions.urls')),
+    url(r'^articles/', include('articles.urls')),
+    url(r'^prestataires/', include('prestataires.urls')),
+    url(r'^questions/', include('questions.urls')),
 
     url(r'^admin/', admin.site.urls),
-    url(r'^robots\.txt',  TemplateView.as_view(template_name='robots.txt')),
+    url(r'^robots\.txt', TemplateView.as_view(template_name='robots.txt')),
 
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps':
-                                         {'articles':ArticleSitemap, 'presataires':PrestatairesSitemap, 'static':StaticViewSitemap}},
-    name='django.contrib.sitemaps.views.sitemap')
+    url(r'^sitemap\.xml$', sitemap, {
+        'sitemaps': {
+            'articles': ArticleSitemap,
+            'presataires': PrestatairesSitemap,
+            'static': StaticViewSitemap
+        }
+    }, name='django.contrib.sitemaps.views.sitemap')
 ]
 
 

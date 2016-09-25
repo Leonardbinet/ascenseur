@@ -7,10 +7,7 @@ from .models import Article, Categorie
 def index(request):
     categories = Categorie.objects.all()
     articles = Article.objects.all()
-    context = {}
-    context['categories']= categories
-    context['nbcat']= categories.count()
-    context['articles']= articles
+    context = {'categories': categories, 'nbcat': categories.count(), 'articles': articles}
     return render(request,'articles/index.html',context)
 
 def article_lecture(request, article_name_slug):

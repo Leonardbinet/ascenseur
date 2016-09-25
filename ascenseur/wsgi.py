@@ -1,6 +1,6 @@
-
 import os
 import sys
+from django.core.wsgi import get_wsgi_application
 
 path = '/home/yomams/ascenseur/'
 path1 = '/home/yomams/ascenseur/ascenseur/'
@@ -11,5 +11,4 @@ if path1 not in sys.path:
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'ascenseur.settings.production'
 
-from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()

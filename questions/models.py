@@ -35,7 +35,7 @@ class Question(models.Model):
     def save(self, *args, **kwargs):
 
         if (self.question_courte== "") or (len(self.question_courte)>47):
-            if (len(self.question)>47):
+            if len(self.question)>47:
                 self.question_courte = self.question[:45]+"..."
             else:
                 self.question_courte=self.question

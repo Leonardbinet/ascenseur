@@ -48,9 +48,9 @@
                                         <li>
                                             <a role="button" data-toggle="collapse" href="#collapse{{ question.slug }}" aria-expanded="false" aria-controls="collapse{{ question.slug }}" >{{ question.question }}</a>
                                         </li>
-                                        <div class="collapse" id="collapse{{ question.slug }}">
+                                        <li class="collapse" id="collapse{{ question.slug }}">
                                             {{ question.reponse }}
-                                        </div>
+                                        </li>
                                             {% endif %}
                                         {% endfor %}
                                     </ul>
@@ -104,7 +104,7 @@
 
     </div>
 </article>
-<hr class="primary"></hr>
+<hr class="primary">
 
 
 {% endblock %}

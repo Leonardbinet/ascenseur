@@ -24,12 +24,12 @@ def index(request):
 
     categories = Categorie.objects.all()
     questions = Question.objects.filter(affichage = True)
-    context = {}
-    context['categories']= categories
-    context['nbcat']= categories.count()
-    context['questions']= questions
-    context['form']= form
-    context['sauve']= sauve
+    context = {'categories': categories,
+               'nbcat': categories.count(),
+               'questions': questions,
+               'form': form,
+               'sauve': sauve
+               }
 
     return render(request,'questions/index.html',context)
 
