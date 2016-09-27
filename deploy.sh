@@ -83,7 +83,7 @@ else
 fi
 ## REALISATION DES OPERATIONS
 echo "1- Git merge sur le master"
-git merge origin/master
+git rebase origin/master
 
 #si changement de schéma de BDD: réalise les migrations de schéma sur la bdd de production
 echo "2- Migration des schémas de base de données."
