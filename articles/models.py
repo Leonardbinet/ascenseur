@@ -17,6 +17,7 @@ class Article(models.Model):
     categorie = models.ForeignKey(Categorie)
     slug = models.SlugField(null=True,blank=True)
     meta_description = models.TextField(max_length=155, blank=True)
+    pour_test = models.TextField(null=True, blank=True)
 
     def get_absolute_url(self):
         return "/articles/"+str(self.slug)
