@@ -35,7 +35,8 @@ else
   virtualenvwrapper est utilisé, ou Anaconda?"
   onyva=0
 fi
-## VERIF DES REQUIREMENTS
+## VERIF DES REQUIREMENTS : a voir: http://www.pindi.us/blog/automating-pip-and-virtualenv-shell-scripts
+
 
 ## VERIF 3 AVANCEMENT BRANCHES GIT http://stackoverflow.com/questions/3258243/check-if-pull-needed-in-git
 echo -e "Préparation 3: \nVérification des branches de GIT"
@@ -97,5 +98,3 @@ else
 echo "3-Rassemblement des fichiers statiques"
 #collecte les fichiers statiques, au cas où les fichiers statiques ont changé,
 python manage.py collectstatic
-
-#vérifier que la variable d'environnement SETTING PATH est bien en prod ou en dev
