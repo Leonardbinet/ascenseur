@@ -1,14 +1,12 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+{% extends 'base.html' %} {% load staticfiles %}
 
 {% block meta_desc %}
-    <meta name="description" content="Toutes les informations concernant l'ascenseur en copropriété.
+<meta name="description" content="Toutes les informations concernant l'ascenseur en copropriété.
     Réglementations, fonctionnement, contrat de maintenance, travaux et bien plus.">
 {% endblock %}
 
-
 {% block body_block %}
-<header style="background-image: url({% static 'Bootstrap/img/header2.jpg' %});min-height: 70%;">
+<header style="background-image: url({% static 'Bootstrap/img/header_article.jpg' %});min-height: 70%;">
     <div class="header-content">
         <div class="header-content-inner">
             <h1>Les dossiers thématiques</h1>
@@ -23,30 +21,31 @@
         <div class="row">
 
             {% for categorie in categories %}
-            {% if forloop.first %}<div class="row">{% endif %}
-            <div class="col-md-4">
-                <h2>{{ categorie.nom }}</h2>
-                <p>{{ categorie.description }}</p>
-                <br>
-                <div class ="articles">
-                    {% for article in articles %}
+            {% if forloop.first %}
+            <div class="row">
+            {% endif %}
+                <div class="col-md-4">
+                    <h2>{{ categorie.nom }}</h2>
+                    <p>{{ categorie.description }}</p>
+                    <br>
+                    <div class="articles">
+                        {% for article in articles %}
                         {% if article.categorie == categorie %}
                         <div>
                             <a class="btn btn-default" href="/articles/{{ article.slug }}/" role="button">{{ article.titre_court }} »</a>
                         </div>
                         {% endif %}
-                    {% endfor %}
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-            {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
-            {% if forloop.last %}</div>{% endif %}
+                {% if forloop.counter|divisibleby:3 %}</div>
+            <div class="row">
+                {% endif %} 
+                {% if forloop.last %}</div>
+                {% endif %}
             {% endfor %}
-
         </div>
-
     </div>
 </section>
 <hr class="primary">
-
-
 {% endblock %}

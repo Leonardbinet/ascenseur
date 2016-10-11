@@ -1,18 +1,19 @@
-
 from django.shortcuts import render
-from django.template import loader
+# from django.template import loader
 from .models import Article, Categorie
 
 
 def index(request):
     categories = Categorie.objects.all()
     articles = Article.objects.all()
-    context = {'categories': categories, 'nbcat': categories.count(), 'articles': articles}
-    return render(request,'articles/index.html',context)
+    context = {'categories': categories, 'nbcat': categories.count(),
+               'articles': articles}
+    return render(request, 'articles/index.html', context)
+
 
 def article_lecture(request, article_name_slug):
-
-    # Create a context dictionary which we can pass to the template rendering engine.
+    # Create a context dictionary which we can pass to the template rendering
+    # engine.
     context_dict = {}
 
     try:
@@ -24,10 +25,9 @@ def article_lecture(request, article_name_slug):
 
     except Article.DoesNotExist:
         # We get here if we didn't find the specified article.
-        # Don't do anything - the template displays the "no category" message for us.
+        # Don't do anything - the template displays the "no category" message
+        # for us.
         pass
 
     # Go render the response and return it to the client.
     return render(request, 'articles/article.html', context_dict)
-
-

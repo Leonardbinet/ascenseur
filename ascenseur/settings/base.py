@@ -2,7 +2,8 @@
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ENV_DIR = os.path.dirname(BASE_DIR)
 
 # Pour gestionnaire de site, pour sitemap
@@ -41,7 +42,11 @@ ROOT_URLCONF = 'ascenseur.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ascenseur/templates'),os.path.join(BASE_DIR, 'articles/templates'),os.path.join(BASE_DIR, 'prestataires/templates'),os.path.join(BASE_DIR, 'questions/templates')],
+        'DIRS': [os.path.join(
+            BASE_DIR, 'ascenseur/templates'),
+            os.path.join(BASE_DIR, 'articles/templates'),
+            os.path.join(BASE_DIR, 'prestataires/templates'),
+            os.path.join(BASE_DIR, 'questions/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -57,24 +62,24 @@ TEMPLATES = [
 WSGI_APPLICATION = 'ascenseur.wsgi.application'
 
 
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.UserAttribute\
+        SimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation\
+        .MinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.Numeric\
+        PasswordValidator',
     },
 ]
 
@@ -93,7 +98,4 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 GOOGLE_ANALYTICS_KEY = "UA-83965114-1"
-

@@ -20,6 +20,7 @@ from django.contrib.sitemaps.views import sitemap
 from .sitemaps import ArticleSitemap, PrestatairesSitemap, StaticViewSitemap
 from django.views.generic.base import TemplateView
 from os import environ
+from importlib import import_module
 
 handler404 = 'ascenseur.views.my_error_404'
 
@@ -28,10 +29,8 @@ urlpatterns = [
     url(r'^articles/', include('articles.urls')),
     url(r'^prestataires/', include('prestataires.urls')),
     url(r'^questions/', include('questions.urls')),
-
     url(r'^admin/', admin.site.urls),
     url(r'^robots\.txt', TemplateView.as_view(template_name='robots.txt')),
-
     url(r'^sitemap\.xml$', sitemap, {
         'sitemaps': {
             'articles': ArticleSitemap,
@@ -42,13 +41,12 @@ urlpatterns = [
 ]
 
 
-from importlib import import_module
 current_settings = import_module(environ['DJANGO_SETTINGS_MODULE'])
 
 if current_settings.DEBUG:
-    urlpatterns += patterns('',
+    urlpatterns += patterns(
+        '',
         url(r'^media/(?P<path>.*)$',
             'django.views.static.serve',
             {'document_root': current_settings.MEDIA_ROOT, }),
     )
-
